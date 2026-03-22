@@ -19,6 +19,9 @@ def extract_title_and_body(input_file: Path):
         if title is None and line.startswith("# "):
             title = line[2:].strip()
         else:
+            # Decrease heading level by one (## -> #, ### -> ##, etc.)
+            if line.startswith("#"):
+                line = line[1:]
             body_lines.append(line)
 
     body = "\n".join(body_lines).strip()
