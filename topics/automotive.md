@@ -8,3 +8,6 @@
 
 ## Sensor Fusion
 - [[dey-2022-co-optimizing-and-dl-in-automotive-cps.md]]
+
+## Vehicle Counting
+- [[khan-2020-cps-for-vehicle-and-emission.md]]
