@@ -36,7 +36,7 @@ smith_2024_embedded_linux.md
 
 ### Zotero (Basic Flow)
 1. Store PDFs in Zotero
-2. Rename as: `author_year_title.pdf`
+2. Rename as: `author-year-title.pdf`
 3. Copy to `assets/pdfs/`
 4. Reference in markdown
 
@@ -46,7 +46,7 @@ smith_2024_embedded_linux.md
 
 ### Create new paper
 ```bash
-./scripts/new_paper.sh smith_2026_topic
+./scripts/new_paper.sh author-year-paper-title
 ```
 
 ### Import from BibTeX
@@ -57,6 +57,51 @@ python3 scripts/import_bibtex.py references.bib
 ### Generate Survey
 ```bash
 python3 scripts/generate_survey.py embedded-linux
+```
+
+### PDF Export
+
+This repository provides a Python script to convert Markdown papers into PDF format using `pandoc`. Therefore, check how to install it into your OS.
+
+```bash
+python3 scripts/export_pdf.py <input>
+```
+
+The script supports:
+- Single file
+- Directory (recursive)
+- Pattern (wildcard)
+
+#### Examples
+**Convert a single paper**
+```bash
+python3 scripts/export_pdf.py papers/year/example.md
+```
+
+**Convert all papers in a directory**
+```bash
+python3 scripts/export_pdf.py papers/year/
+```
+
+**Convert using pattern**
+```bash
+python3 scripts/export_pdf.py "papers/year/author*"
+```
+>Note: Use quotes when using wildcards.
+
+
+#### Output Structure
+
+All PDFs are generated under the `output/` directory.
+
+**Input**
+```bash
+papers/year/author-year-paper-title.md
+```
+
+**Output**
+```bash
+output/year/author-year-paper-title.pdf
 ```
 
 ---
